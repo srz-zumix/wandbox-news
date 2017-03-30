@@ -87,3 +87,7 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# 
+wandbox-api/
+wandbox-compilers.txt
