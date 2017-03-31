@@ -4,9 +4,7 @@ general:
 
 machine:
   python:
-    version: pypy-2.2.1
-  post:
-    - pyenv global 2.7.9
+    version: 2.7.10
 
 dependencies:
   pre:
