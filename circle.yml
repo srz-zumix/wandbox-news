@@ -14,4 +14,6 @@ dependencies:
 test:
   override:
     - python wandbox-listup-compiler.py > wandbox-compilers.txt
-    
+    - wget -O wandbox-compilers.latest https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/latest/artifacts/0/home/ubuntu/$CIRCLE_PROJECT_REPONAME/wandbox-compilers.txt?filter=successful
+    - cat wandbox-compilers.latest
+
