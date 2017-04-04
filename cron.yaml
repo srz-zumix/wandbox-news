@@ -1,0 +1,5 @@
+cron:
+- description: wandbox new kick
+  url: /wandbox-news-kick
+  schedule: every day 09:00
+  timezone: Asia/Tokyo
