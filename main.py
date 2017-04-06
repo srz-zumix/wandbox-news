@@ -1,3 +1,4 @@
+import requests
 from flask import Flask
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -13,9 +14,20 @@ def hello():
 
 
 @app.route('/wandbox-news-kick')
-def hello():
+def kick():
     """Return a friendly HTTP greeting."""
-    return 'kick'
+    project = ''
+    branch = 'master'
+    token = ''
+    trigger_build_url='https://circleci.com/api/v1.1/project/github/{0}/tree/{1}'.format(project, branch)
+    if token:
+        trigger_build_url += '?circle-token=' + token
+    headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
+    parameter = { 'build_parameters': { 'RUN_NIGHTLY_BUILD': 'true'} }
+    payload = json.dumps(parameter)
+    r = requests.post(trigger_build_url, data=payload, headers=headers)
+    r.raise_for_status()
+    return r
 
 
 @app.errorhandler(404)
