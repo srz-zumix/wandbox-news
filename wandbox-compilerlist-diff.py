@@ -22,9 +22,9 @@ if __name__ == '__main__':
     deleted_list = [x for x in old_list if x not in new_list]
     added_list = [x for x in new_list if x not in old_list]
 
-    for d in added_list:
-        print('NEW!: ' + d)
-    for d in deleted_list:
-        print('Deleted: ' + d)
+    if added_list:
+        print('[NEW!] ' + ', '.join(added_list))
+    if deleted_list:
+        print('[Deleted] ' + ', '.join(deleted_list))
     if deleted_list or added_list:
         sys.exit(1)
