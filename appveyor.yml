@@ -1,0 +1,54 @@
+version: 1.0.{build}
+branches:
+  only:
+  - develop
+skip_tags: true
+install:
+- cmd: sh setup.sh
+build_script:
+- ps: >-
+    sh notifier.sh > diff.txt
+
+    if ($LastExitCode -ne 0) {
+
+    $fileName = $pwd.Path + "/diff.txt"
+
+    $file = New-Object System.IO.StreamReader($fileName)
+
+    $message = ""
+
+    while (($line = $file.ReadLine()) -ne $null)
+
+    {
+        Write-Host($text)
+        $message += $line + "\r\n"
+    }
+
+    Add-AppveyorMessage -Message $message
+
+
+    exit 1
+
+    }
+notifications:
+- provider: Webhook
+  url:
+    secure: GswYBbi5QpxlJBk8YiJ5vHC3vhAJ60aQrUpzXSJ1EkQU3ZCbJL0BDTxRk/xtZFUMtdBwwCYn8XehCjSQS7ciGQ==
+  method: POST
+  body: >-
+    {
+        "buildUrl": [ "{{buildUrl}}" ],
+        "buildNumber": {{buildNumber}},
+        "buildVersion": "{{buildVersion}}",
+        "message": [
+        {{#jobs}}
+            {{#messages}}
+            "{{message}}",
+            {{/messages}}
+        {{/jobs}}
+            ""
+        ]
+    }
+  on_build_success: false
+  on_build_failure: true
+  on_build_status_changed: false
