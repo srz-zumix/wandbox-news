@@ -20,7 +20,7 @@ build_script:
     while (($line = $file.ReadLine()) -ne $null)
 
     {
-        Write-Host $text
+        Write-Host $line
         $message += $line + "\n"
     }
 
