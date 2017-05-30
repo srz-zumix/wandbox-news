@@ -32,8 +32,8 @@ build_script:
     }
 notifications:
 - provider: Webhook
-  url:
-    secure: GswYBbi5QpxlJBk8YiJ5vHC3vhAJ60aQrUpzXSJ1EkQU3ZCbJL0BDTxRk/xtZFUMtdBwwCYn8XehCjSQS7ciGQ==
+#  url:
+#    secure: GswYBbi5QpxlJBk8YiJ5vHC3vhAJ60aQrUpzXSJ1EkQU3ZCbJL0BDTxRk/xtZFUMtdBwwCYn8XehCjSQS7ciGQ==
   method: POST
   body: >-
     {
