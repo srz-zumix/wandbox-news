@@ -20,8 +20,8 @@ build_script:
     while (($line = $file.ReadLine()) -ne $null)
 
     {
-        Write-Host($text)
-        $message += $line + "\r\n"
+        Write-Host $text
+        $message += $line + "\n"
     }
 
     Add-AppveyorMessage -Message $message
