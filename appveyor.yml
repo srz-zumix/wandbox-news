@@ -30,25 +30,25 @@ build_script:
     exit 1
 
     }
-notifications:
-- provider: Webhook
+#notifications:
+#- provider: Webhook
 #  url:
 #    secure: GswYBbi5QpxlJBk8YiJ5vHC3vhAJ60aQrUpzXSJ1EkQU3ZCbJL0BDTxRk/xtZFUMtdBwwCYn8XehCjSQS7ciGQ==
-  method: POST
-  body: >-
-    {
-        "buildUrl": [ "{{buildUrl}}" ],
-        "buildNumber": {{buildNumber}},
-        "buildVersion": "{{buildVersion}}",
-        "message": [
-        {{#jobs}}
-            {{#messages}}
-            "{{message}}",
-            {{/messages}}
-        {{/jobs}}
-            ""
-        ]
-    }
-  on_build_success: false
-  on_build_failure: true
-  on_build_status_changed: false
+#  method: POST
+#  body: >-
+#    {
+#        "buildUrl": [ "{{buildUrl}}" ],
+#        "buildNumber": {{buildNumber}},
+#        "buildVersion": "{{buildVersion}}",
+#        "message": [
+#        {{#jobs}}
+#            {{#messages}}
+#            "{{message}}",
+#            {{/messages}}
+#        {{/jobs}}
+#            ""
+#        ]
+#    }
+#  on_build_success: false
+#  on_build_failure: true
+#  on_build_status_changed: false
