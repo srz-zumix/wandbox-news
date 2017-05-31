@@ -26,12 +26,13 @@ build_script:
 
     Add-AppveyorMessage -Message $message
 
-    Push-AppveyorArtifact "wandbox-compilers.txt" -DeploymentName "wandbox-compilers"
-
-
-    exit 1
+    exit 0
 
     }
+
+    Push-AppveyorArtifact "wandbox-compilers.txt" -DeploymentName "wandbox-compilers"
+
+    exit 1
 test: off
 artifacts:
 - path: wandbox-compilers.txt
@@ -56,6 +57,6 @@ deploy: off
 #            ""
 #        ]
 #    }
-#  on_build_success: false
-#  on_build_failure: true
+#  on_build_success: true
+#  on_build_failure: false
 #  on_build_status_changed: false
