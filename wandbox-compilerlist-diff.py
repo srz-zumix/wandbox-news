@@ -27,4 +27,5 @@ if __name__ == '__main__':
     if deleted_list:
         print('[Deleted] ' + ', '.join(deleted_list))
     if deleted_list or added_list:
-        sys.exit(1)
+        sys.exit(0)
+    sys.exit(1)

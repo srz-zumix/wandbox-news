@@ -7,14 +7,20 @@ install:
 - cmd: sh setup.sh
 build_script:
 - ps: >-
-    sh notifier.sh > diff.txt
-
-    if ($LastExitCode -ne 0) {
+    sh notifier.sh
 
     $fileName = $pwd.Path + "/diff.txt"
 
-    $file = New-Object System.IO.StreamReader($fileName)
+    if ( !(Test-Path $fileName)) {
 
+    exit 1
+
+    }
+
+    if ($LastExitCode -eq 0) {
+
+    $file = New-Object System.IO.StreamReader($fileName)
+l
     $message = ""
 
     while (($line = $file.ReadLine()) -ne $null)
