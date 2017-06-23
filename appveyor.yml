@@ -12,32 +12,21 @@ build_script:
     $fileName = $pwd.Path + "/diff.txt"
 
     if ( !(Test-Path $fileName)) {
-
-    exit 1
-
+        exit 1
     }
 
     if ($LastExitCode -eq 0) {
-
-    $file = New-Object System.IO.StreamReader($fileName)
-l
-    $message = ""
-
-    while (($line = $file.ReadLine()) -ne $null)
-
-    {
-        Write-Host $line
-        $message += $line + "\n"
-    }
-
-    Add-AppveyorMessage -Message $message
-
+        $file = New-Object System.IO.StreamReader($fileName)
+        $message = ""
+        while (($line = $file.ReadLine()) -ne $null)
+        {
+            Write-Host $line
+            $message += $line + "\n"
+        }
+        Add-AppveyorMessage -Message $message
     } else {
-
-    Push-AppveyorArtifact "wandbox-compilers.txt" -DeploymentName "wandbox-compilers"
-
-    exit 1
-
+        Push-AppveyorArtifact "wandbox-compilers.txt" -DeploymentName "wandbox-compilers"
+        exit 1
     }
 test: off
 artifacts:
