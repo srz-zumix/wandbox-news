@@ -1,5 +1,7 @@
 #!/bin/bash
 
+python --version
+
 LASTFILE=last.txt
 LISTFILE=wandbox-compilers.txt
 USERNAME=srz-zumix
