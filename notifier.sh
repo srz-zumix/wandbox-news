@@ -6,7 +6,7 @@ LASTFILE=last.txt
 LISTFILE=wandbox-compilers.txt
 USERNAME=srz-zumix
 PROJECT=wandbox-news
-wandbox --retry 3 compiler > $LISTFILE
+python wandbox-listup-compiler.py > $LISTFILE
 if [ $? -ne 0 ]
 then
 	rm -rf $LISTFILE
