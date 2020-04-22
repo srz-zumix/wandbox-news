@@ -6,7 +6,8 @@ LASTFILE=last.txt
 LISTFILE=wandbox-compilers.txt
 USERNAME=srz-zumix
 PROJECT=wandbox-news
-python wandbox-listup-compiler.py > $LISTFILE
+# python wandbox-listup-compiler.py > $LISTFILE
+wandbox-cxx compiler > $LISTFILE
 if [ $? -ne 0 ]
 then
 	rm -rf $LISTFILE
