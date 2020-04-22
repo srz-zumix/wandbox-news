@@ -5,7 +5,7 @@ branches:
 skip_tags: true
 image: Visual Studio 2019
 init:
-- cmd: SET PATH=C:\Python38;%PATH%
+- cmd: SET PATH=C:\Python38;C:\Python38\Scripts;%PATH%
 install:
 - cmd: sh setup.sh
 build_script:
