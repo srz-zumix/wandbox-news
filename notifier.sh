@@ -7,7 +7,7 @@ LISTFILE=wandbox-compilers.txt
 USERNAME=srz-zumix
 PROJECT=wandbox-news
 # python wandbox-listup-compiler.py > $LISTFILE
-wandbox compiler > $LISTFILE
+wandbox versions > $LISTFILE
 if [ $? -ne 0 ]
 then
 	rm -rf $LISTFILE
